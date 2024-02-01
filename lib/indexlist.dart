@@ -6,18 +6,18 @@ class IndexList extends StatelessWidget {
   final image;
   final String name;
   final String num;
-
   final color;
+  final double boxSize;
 
-  const IndexList({
-    super.key,
-    required this.text,
-    required this.time,
-    required this.image,
-    required this.name,
-    required this.num,
-    required this.color,
-  });
+  const IndexList(
+      {super.key,
+      required this.text,
+      required this.time,
+      required this.image,
+      required this.name,
+      required this.num,
+      required this.color,
+      required this.boxSize});
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +29,17 @@ class IndexList extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 82, 74, 74),
-              borderRadius: BorderRadius.circular(5)),
+              color: Color(0xFF363636), borderRadius: BorderRadius.circular(5)),
           child: Row(
             children: [
-              const Icon(Icons.circle),
+              Container(
+                width: 17,
+                height: 17,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.white),
+                ),
+              ),
               const SizedBox(
                 width: 10,
               ),
@@ -47,8 +53,8 @@ class IndexList extends StatelessWidget {
                   Row(
                     children: [
                       Container(child: Text(time)),
-                      const SizedBox(
-                        width: 60,
+                      SizedBox(
+                        width: this.boxSize,
                       ),
                       Container(
                         padding: EdgeInsets.all(8),

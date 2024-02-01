@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nothing/Login1.dart';
 import 'package:nothing/buttons.dart';
+import 'package:nothing/custom/BottomNavigationBar.dart';
+import 'package:nothing/custom/task.dart';
+
+import 'package:nothing/indexscreen.dart';
 import 'package:nothing/index.dart';
-import 'package:nothing/listview.dart';
 import 'package:nothing/pro/homepage.dart';
 
 import 'package:nothing/splashscreen.dart';
@@ -21,6 +24,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: ListView1());
+        home: Index());
   }
 }

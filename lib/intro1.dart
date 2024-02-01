@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/Intro2.dart';
+import 'package:nothing/intro2.dart';
 
 class Intro1 extends StatelessWidget {
   const Intro1({super.key});
