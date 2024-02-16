@@ -15,21 +15,12 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
       showDialog(
           context: context,
           builder: (context) {
-            return AlertDialog(
-              title: const Text(
+            return const AlertDialog(
+              title: Text(
                 'Add Task',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
               content: Task(),
-              actions: [
-                MaterialButton(
-                    onPressed: () {},
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(Icons.send)))
-              ],
             );
           });
     }

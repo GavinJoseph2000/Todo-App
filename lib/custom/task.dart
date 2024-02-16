@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Task extends StatefulWidget {
   const Task({Key? key}) : super(key: key);
@@ -9,6 +10,9 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   DateTime _dateTime = DateTime.now();
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  bool validate = false;
 
   // date picker
   showDatePickerDialog() {
@@ -57,12 +61,14 @@ class _TaskState extends State<Task> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
               child: TextField(
+                controller: titleController,
                 decoration: InputDecoration(
                   labelText: 'Title',
-                  border: OutlineInputBorder(
+                  errorText: validate ? "please enter title" : null,
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
                   ),
                 ),
@@ -73,12 +79,14 @@ class _TaskState extends State<Task> {
               child: Expanded(
                 flex: 4,
                 child: TextFormField(
+                  controller: descriptionController,
                   maxLength: 100,
                   minLines: 1,
                   maxLines: 3,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                    errorText: validate ? "please enter description" : null,
                     labelText: 'Description',
-                    border: OutlineInputBorder(
+                    border: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
@@ -96,7 +104,7 @@ class _TaskState extends State<Task> {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.white),
+                          side: const BorderSide(color: Colors.white),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
@@ -104,7 +112,7 @@ class _TaskState extends State<Task> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.calendar_month),
+                        const Icon(Icons.calendar_month),
                         Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Text(
@@ -133,13 +141,38 @@ class _TaskState extends State<Task> {
                       children: [
                         const Icon(Icons.access_time),
                         Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child:
-                                Text("${_dateTime.hour}:${_dateTime.minute}")),
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            "${_dateTime.hour}:${_dateTime.minute}",
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 180, top: 10),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      validate = titleController.text.isEmpty;
+                      validate = titleController.text.isEmpty;
+                    });
+                    if (!validate) {
+                      Get.back();
+                    }
+                  },
+                  style: ButtonStyle(
+                      side: const MaterialStatePropertyAll(
+                          BorderSide(color: Colors.white60)),
+                      shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)))),
+                  child: const Text('Save'),
+                ),
               ),
             ),
           ],
