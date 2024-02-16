@@ -74,12 +74,15 @@
       "languageVersion": "3.2"
     },
     {
+<<<<<<< HEAD
       "name": "get",
       "rootUri": "file:///C:/Users/Kusuma/AppData/Local/Pub/Cache/hosted/pub.dev/get-4.6.6",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
     {
+=======
+>>>>>>> main
       "name": "lints",
       "rootUri": "file:///C:/Users/Kusuma/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -206,7 +209,11 @@
       "languageVersion": "3.2"
     }
   ],
+<<<<<<< HEAD
   "generated": "2024-02-16T06:12:54.445957Z",
+=======
+  "generated": "2024-02-16T06:23:35.695806Z",
+>>>>>>> main
   "generator": "pub",
   "generatorVersion": "3.2.6"
 }
