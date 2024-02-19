@@ -20,7 +20,7 @@ class IndexHome extends StatelessWidget {
                 children: [
                   Image(
                     image: AssetImage(
-                      "images/sortmenu.png",
+                      "images/menu.png",
                     ),
                   ),
                   Text(

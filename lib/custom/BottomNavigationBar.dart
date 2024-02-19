@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nothing/custom/task.dart';
+import 'package:nothing/focus.dart';
+import 'package:nothing/profile.dart';
+import 'package:nothing/settings.dart';
 
 class bottomNavigationBar extends StatefulWidget {
   const bottomNavigationBar({super.key});
@@ -42,14 +46,16 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                       flex: 5,
                       child: Container(
                         margin: const EdgeInsets.only(
-                          top: 20,
+                          top: 5,
                         ),
-                        child: const Column(children: [
-                          Icon(
-                            Icons.home,
-                            color: Colors.white,
-                          ),
-                          Text(
+                        child: Column(children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.home,
+                                color: Colors.white,
+                              )),
+                          const Text(
                             'Index',
                             style: TextStyle(color: Colors.white),
                           )
@@ -59,14 +65,18 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                     Expanded(
                       flex: 5,
                       child: Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        child: const Column(children: [
-                          Icon(
-                            Icons.calendar_month_outlined,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Calender',
+                        margin: const EdgeInsets.only(top: 5),
+                        child: Column(children: [
+                          IconButton(
+                              onPressed: () {
+                                Get.to(Settings());
+                              },
+                              icon: const Icon(
+                                Icons.settings,
+                                color: Colors.white,
+                              )),
+                          const Text(
+                            'Settings',
                             style: TextStyle(color: Colors.white),
                           )
                         ]),
@@ -83,13 +93,17 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                     Expanded(
                       flex: 5,
                       child: Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        child: const Column(children: [
-                          Icon(
-                            Icons.access_time,
-                            color: Colors.white,
-                          ),
-                          Text(
+                        margin: const EdgeInsets.only(top: 5),
+                        child: Column(children: [
+                          IconButton(
+                              onPressed: () {
+                                Get.to(FocusMode());
+                              },
+                              icon: const Icon(
+                                Icons.access_time,
+                                color: Colors.white,
+                              )),
+                          const Text(
                             'Focuse',
                             style: TextStyle(color: Colors.white),
                           )
@@ -99,13 +113,17 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                     Expanded(
                       flex: 5,
                       child: Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        child: const Column(children: [
-                          Icon(
-                            Icons.person_2,
-                            color: Colors.white,
-                          ),
-                          Text(
+                        margin: const EdgeInsets.only(top: 5),
+                        child: Column(children: [
+                          IconButton(
+                              onPressed: () {
+                                Get.to(Profile());
+                              },
+                              icon: const Icon(
+                                Icons.person_2,
+                                color: Colors.white,
+                              )),
+                          const Text(
                             'Profile',
                             style: TextStyle(color: Colors.white),
                           )
