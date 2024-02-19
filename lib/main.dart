@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/Login1.dart';
-import 'package:nothing/buttons.dart';
-import 'package:nothing/index.dart';
-import 'package:nothing/listview.dart';
-import 'package:nothing/pro/homepage.dart';
-
+import 'package:get/get.dart';
 import 'package:nothing/splashscreen.dart';
-import 'package:nothing/splashscreen1.dart';
-import 'package:nothing/startscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(),
-        home: ListView1());
+    return GetMaterialApp(
+      home: SplashScreen(),
+      theme: ThemeData.dark(),
+    );
   }
 }
