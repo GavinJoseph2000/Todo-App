@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/intro1.dart';
-import 'package:nothing/startscreen.dart';
+import 'package:get/get.dart';
+import 'package:nothing/onboarding.dart';
+import 'package:nothing/onboarding2.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
@@ -8,108 +9,123 @@ class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StartScreen()));
-                },
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.topLeft,
+                child: TextButton(
+                  onPressed: () {
+                    Get.to(const Onboarding2());
+                  },
+                  child: const Text(
+                    'SKIP',
+                    style:
+                        TextStyle(height: 5, color: Colors.white, fontSize: 18),
+                  ),
+                ),
+              ),
+              Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  child: Image.asset("images/manage.png")),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50, left: 100),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      height: 5,
+                      width: 35,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      height: 5,
+                      width: 35,
+                      decoration: const BoxDecoration(
+                        color: Colors.white38,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50, right: 80),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      height: 5,
+                      width: 35,
+                      decoration: const BoxDecoration(
+                        color: Colors.white24,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
                 child: const Text(
-                  'SKIP',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                )),
-          ),
-          Container(
-              margin: const EdgeInsets.only(top: 25),
-              child: Image.asset("images/person.png")),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 60, left: 15),
-                child: Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  width: 35,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
+                  'Manage your tasks',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  width: 35,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20)),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                child: const Text(
+                  'You can easily manage all of your tasks daily tasks in DoMe for free',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: Container(
-                  margin: const EdgeInsets.only(right: 20),
-                  width: 35,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(20)),
+              Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        decoration: BoxDecoration(border: Border.all()),
+                        margin: const EdgeInsets.only(left: 250, top: 60),
+                        height: 40,
+                        child: TextButton(
+                          onPressed: () {
+                            Get.to(const Onboarding());
+                          },
+                          style: const ButtonStyle(
+                              shape: MaterialStatePropertyAll(
+                                  ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(5)))),
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Color(0XFFA020F0))),
+                          child: const Text(
+                            'NEXT',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 30),
-            child: const Text(
-              'Manage your tasks',
-              style: TextStyle(
-                fontSize: 40,
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-            child: const Text(
-              'You can easily manage all of your daily tasks in DoMe for free',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Row(
-            children: [
-              Padding(
-                  padding: const EdgeInsets.only(top: 100, left: 330),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Intro1()));
-                      },
-                      style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0XFFFF00A8)),
-                        shape: MaterialStatePropertyAll(
-                            ContinuousRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)))),
-                      ),
-                      child: const Text(
-                        'NEXT',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      )))
-            ],
-          ),
-        ],
+        ),
       ),
-    ));
+    );
   }
 }
