@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class IndexHome extends StatelessWidget {
-  const IndexHome({super.key});
-
+  IndexHome({super.key});
+  final _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,26 +34,16 @@ class IndexHome extends StatelessWidget {
                 height: 20,
               ),
               // search
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: const BorderRadius.all(Radius.circular(5))),
-                child: const Row(
-                  children: [
-                    Icon(
+              TextFormField(
+                controller: _controller,
+                decoration: const InputDecoration(
+                    hintText: 'Search for your task...',
+                    prefixIcon: Icon(
                       Icons.search,
                       size: 35,
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      'Search for yor task...',
-                      style: TextStyle(fontSize: 17),
-                    )
-                  ],
-                ),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white))),
               ),
               const SizedBox(
                 height: 10,
