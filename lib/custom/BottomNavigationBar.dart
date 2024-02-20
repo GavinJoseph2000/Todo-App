@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/custom/task.dart';
-import 'package:nothing/focus.dart';
-import 'package:nothing/profile.dart';
-import 'package:nothing/settings.dart';
+import 'package:nothing/Screens/focus.dart';
+import 'package:nothing/Screens/profile.dart';
+import 'package:nothing/Screens/settings.dart';
 
 class bottomNavigationBar extends StatefulWidget {
   const bottomNavigationBar({super.key});
@@ -136,20 +136,17 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
             ],
           ),
         ),
-        Positioned(
-            top: -38,
-            child: Container(
-                width: 65,
-                height: 65,
-                decoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(50)),
-                child: IconButton(
-                    onPressed: showDailog,
-                    icon: const Icon(
-                      Icons.add,
-                      size: 35,
-                    )))),
+        Container(
+            width: 65,
+            height: 65,
+            decoration: BoxDecoration(
+                color: Colors.pink, borderRadius: BorderRadius.circular(50)),
+            child: IconButton(
+                onPressed: showDailog,
+                icon: const Icon(
+                  Icons.add,
+                  size: 35,
+                ))),
       ],
     );
   }
