@@ -22,7 +22,8 @@ class DialogBoxState extends State<DialogBox> {
               )
             ],
           );
-        });
+        }
+        );
   }
 
   @override

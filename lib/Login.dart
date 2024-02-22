@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/indexhome.dart';
 
-class LoginPage extends StatefulWidget {
+ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override

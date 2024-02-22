@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nothing/Categories.dart';
 import 'package:nothing/custom/task.dart';
 import 'package:nothing/focus.dart';
 import 'package:nothing/profile.dart';
@@ -69,14 +70,14 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                         child: Column(children: [
                           IconButton(
                               onPressed: () {
-                                Get.to(Settings());
+                                Get.to(Categories());
                               },
                               icon: const Icon(
                                 Icons.settings,
                                 color: Colors.white,
                               )),
                           const Text(
-                            'Settings',
+                            'Categories',
                             style: TextStyle(color: Colors.white),
                           )
                         ]),
@@ -154,3 +155,4 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
     );
   }
 }
+

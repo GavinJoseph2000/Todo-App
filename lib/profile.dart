@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'Profile',
                     style: TextStyle(
                       fontSize: 20,
@@ -30,14 +30,14 @@ class Profile extends StatelessWidget {
                       decoration: TextDecoration.none,
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 20),
                     child: CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage('images/profileimg.png'),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: Text(
                       'Martha Hays',
@@ -52,35 +52,35 @@ class Profile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 20.0, left: 5.0),
+                        padding: const EdgeInsets.only(top: 20.0, left: 5.0),
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(),
-                            primary: Color(0xFF363636),
-                            onPrimary: Color(0xFFFFFFDE),
-                            padding: EdgeInsets.fromLTRB(45, 24, 45, 24),
+                            shape: const RoundedRectangleBorder(),
+                            primary: const Color(0xFF363636),
+                            onPrimary: const Color(0xFFFFFFDE),
+                            padding: const EdgeInsets.fromLTRB(45, 24, 45, 24),
                           ),
-                          child: Text('10 Task left'),
+                          child: const Text('10 Task left'),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 20.0, right: 5.0),
+                        padding: const EdgeInsets.only(top: 20.0, right: 5.0),
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(),
-                            primary: Color(0xFF363636),
-                            onPrimary: Color(0xFFFFFFDE),
-                            padding: EdgeInsets.fromLTRB(45, 24, 45, 24),
+                            shape: const RoundedRectangleBorder(),
+                            primary: const Color(0xFF363636),
+                            onPrimary: const Color(0xFFFFFFDE),
+                            padding: const EdgeInsets.fromLTRB(45, 24, 45, 24),
                           ),
-                          child: Text('5 Task done'),
+                          child: const Text('5 Task done'),
                         ),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0, left: 5.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20.0, left: 5.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -99,12 +99,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/setting.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'App Settings',
                         style: TextStyle(
                             fontSize: 16,
@@ -112,18 +112,18 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
                       )
                     ]),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0, left: 5.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20.0, left: 5.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -142,12 +142,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/user.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'Change account name',
                         style: TextStyle(
                             fontSize: 16,
@@ -155,10 +155,10 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
@@ -169,12 +169,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/key.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'Enable password',
                         style: TextStyle(
                             fontSize: 16,
@@ -182,10 +182,10 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
@@ -196,12 +196,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/camera.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'Change account Image',
                         style: TextStyle(
                             fontSize: 16,
@@ -209,18 +209,18 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
                       )
                     ]),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0, left: 5.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20.0, left: 5.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -239,12 +239,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/menu.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'About US',
                         style: TextStyle(
                             fontSize: 16,
@@ -252,10 +252,10 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
@@ -266,12 +266,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/flash.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'Help & Feedback',
                         style: TextStyle(
                             fontSize: 16,
@@ -279,10 +279,10 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
@@ -293,12 +293,12 @@ class Profile extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10.0),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
                             'images/like.png',
-                            color: Color(0xFFFFFFDE),
+                            color: const Color(0xFFFFFFDE),
                           )),
-                      Text(
+                      const Text(
                         'Support US',
                         style: TextStyle(
                             fontSize: 16,
@@ -306,10 +306,10 @@ class Profile extends StatelessWidget {
                             color: Color(0xFFFFFFDE),
                             decoration: TextDecoration.none),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
                         ),
@@ -327,10 +327,10 @@ class Profile extends StatelessWidget {
                         ),
                         child: Image.asset(
                           'images/logout.png',
-                          color: Color(0xFFFF4949),
+                          color: const Color(0xFFFF4949),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Logout',
                         style: TextStyle(
                             fontSize: 16,

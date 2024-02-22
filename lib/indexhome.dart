@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:nothing/Categories.dart';
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class IndexHome extends StatelessWidget {
-  IndexHome({super.key});
-
-  @override
+ IndexHome({Key? key}) : super(key: key);
+ 
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomNavigationBar(),
+      bottomNavigationBar: const bottomNavigationBar(),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // index
+              // Index header
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -24,7 +25,7 @@ class IndexHome extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Index",
+                    "Home",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                   Icon(Icons.person)
@@ -32,13 +33,13 @@ class IndexHome extends StatelessWidget {
               ),
               const SizedBox(
                 height: 20,
-              ),
-              // search
+            ),
+              // Search bar
               Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                    borderRadius: const BorderRadius.all(Radius.circular(5))),
                 child: const Row(
                   children: [
                     Icon(
@@ -49,41 +50,16 @@ class IndexHome extends StatelessWidget {
                       width: 5,
                     ),
                     Text(
-                      'Search for yor task...',
+                      'Search for your task...',
                       style: TextStyle(fontSize: 17),
                     )
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              // today
-              Container(
-                padding: EdgeInsets.only(left: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Color(0xFF363636)),
-                width: 80,
-                height: 40,
-                child: const Row(
-                  children: [
-                    Text('Today'),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Icon(Icons.keyboard_arrow_down)
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              // list view,
+              ), 
             ],
           ),
         ),
       ),
     );
   }
-}
+  }
