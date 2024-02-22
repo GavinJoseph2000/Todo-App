@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/intro.dart';
@@ -31,7 +30,7 @@ class Onboarding extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
-                  child: Image.asset("images/Onbd.png")),
+                  child: Image.asset("images/create.png")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -119,12 +118,7 @@ class Onboarding extends StatelessWidget {
                         height: 40,
                         child: TextButton(
                           onPressed: () {
-                             Get.to(const Onboarding1());
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => const Onboarding1()),
-                            // );
+                            Get.to(const Onboarding1());
                           },
                           style: const ButtonStyle(
                               shape: MaterialStatePropertyAll(
@@ -146,7 +140,7 @@ class Onboarding extends StatelessWidget {
             ],
           ),
         ),
-     ),
-);
-}
+      ),
+    );
+  }
 }

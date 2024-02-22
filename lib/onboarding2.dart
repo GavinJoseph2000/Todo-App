@@ -44,8 +44,7 @@ class Onboarding2 extends StatelessWidget {
               width: 300,
               child: TextButton(
                 onPressed: () {
-                  Get.to(const Login1());
-                  
+                  Get.to(const LoginPage());
                 },
                 style: const ButtonStyle(
                     shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
@@ -65,7 +64,9 @@ class Onboarding2 extends StatelessWidget {
               decoration:
                   BoxDecoration(border: Border.all(color: Colors.deepPurple)),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(LoginPage());
+                },
                 style: const ButtonStyle(
                   shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
                       borderRadius: BorderRadius.all(
@@ -80,7 +81,7 @@ class Onboarding2 extends StatelessWidget {
             ),
           ],
         ),
-    ),
-);
-}
+      ),
+    );
+  }
 }

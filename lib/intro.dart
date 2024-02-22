@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:nothing/onboarding.dart';
 import 'package:nothing/onboarding2.dart';
 
-
 class Intro extends StatelessWidget {
   const Intro({super.key});
 
@@ -30,7 +29,7 @@ class Intro extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
-                  child: Image.asset("images/intro.png")),
+                  child: Image.asset("images/manage.png")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

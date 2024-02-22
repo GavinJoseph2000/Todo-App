@@ -28,7 +28,7 @@ class Onboarding1 extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
-                  child: Image.asset("images/Onbd1.png")),
+                  child: Image.asset("images/organize.png")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -139,7 +139,7 @@ class Onboarding1 extends StatelessWidget {
             ],
           ),
         ),
-     ),
-);
-}
+      ),
+    );
+  }
 }

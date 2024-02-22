@@ -1,25 +1,23 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nothing/intro.dart';
 
-class Splashscreen extends StatefulWidget {
-  const Splashscreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State createState() {
-    return Home3();
-  }
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class Home3 extends State {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Get.to(const Intro())
-            );
+        () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Intro())));
   }
 
   @override
@@ -28,9 +26,8 @@ class Home3 extends State {
         backgroundColor: Colors.black,
         body: Container(
           child: const Center(
-            child: Image(image: AssetImage("images/Upto.png")),
+            child: Image(image: AssetImage("images/uptodo.png")),
           ),
- )
- );
- }
+        ));
+  }
 }

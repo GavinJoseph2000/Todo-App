@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nothing/indexhome.dart';
 
-class Login1 extends StatefulWidget {
-  const Login1({super.key});
+ class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
   Login1State createState() => Login1State();
 }
 
-class Login1State extends State<Login1> {
+class Login1State extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _mobileController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -21,14 +23,15 @@ class Login1State extends State<Login1> {
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [const Padding(padding: EdgeInsets.only(top: 80)),
-                  const Text(
-                      'Login',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.w700),
-                    ),
+            children: [
+              const Padding(padding: EdgeInsets.only(top: 80)),
+              const Text(
+                'Login',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w700),
+              ),
               const Padding(
                 padding: EdgeInsets.only(top: 40),
                 child: Text(
@@ -38,8 +41,8 @@ class Login1State extends State<Login1> {
               ),
               TextFormField(
                 decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Enter your Mobile No"),
+                    border: OutlineInputBorder(),
+                    labelText: "Enter your Mobile No"),
                 controller: _mobileController,
                 keyboardType: TextInputType.phone,
                 maxLength: 10,
@@ -54,7 +57,6 @@ class Login1State extends State<Login1> {
                   return null;
                 },
               ),
-        
               const Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
@@ -64,8 +66,8 @@ class Login1State extends State<Login1> {
               ),
               TextFormField(
                 decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Enter your Full Name"),
+                    border: OutlineInputBorder(),
+                    labelText: "Enter your Full Name"),
                 controller: _nameController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -78,20 +80,19 @@ class Login1State extends State<Login1> {
               ),
               Container(
                 height: 50,
-                    width: 360,
-                    margin: const EdgeInsets.only(left: 5, top: 30),
-                    decoration: const BoxDecoration(color: Colors.purple),
+                width: 360,
+                margin: const EdgeInsets.only(left: 5, top: 30),
+                decoration: const BoxDecoration(color: Colors.purple),
                 child: TextButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                     
-                    }
+                    if (_formKey.currentState!.validate()) {}
+                    Get.to(IndexHome());
                   },
                   style: const ButtonStyle(
-                          shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(5)))),
-                          backgroundColor:
-                              MaterialStatePropertyAll(Color.fromRGBO(240, 32, 167, 1))),
+                      shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)))),
+                      backgroundColor: MaterialStatePropertyAll(
+                          Color.fromRGBO(240, 32, 167, 1))),
                   child: const Text('Login'),
                 ),
               ),
