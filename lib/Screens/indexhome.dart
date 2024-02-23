@@ -3,15 +3,9 @@ import 'package:nothing/Categories.dart';
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class IndexHome extends StatelessWidget {
-<<<<<<< HEAD:lib/indexhome.dart
- IndexHome({Key? key}) : super(key: key);
- 
- @override
-=======
   IndexHome({super.key});
   final _controller = TextEditingController();
   @override
->>>>>>> d637de200ccefbaf4d620a7cb1bf936d482e0663:lib/Screens/indexhome.dart
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const bottomNavigationBar(),
@@ -39,31 +33,6 @@ class IndexHome extends StatelessWidget {
               ),
               const SizedBox(
                 height: 20,
-<<<<<<< HEAD:lib/indexhome.dart
-            ),
-              // Search bar
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    borderRadius: const BorderRadius.all(Radius.circular(5))),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      size: 35,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      'Search for your task...',
-                      style: TextStyle(fontSize: 17),
-                    )
-                  ],
-                ),
-              ), 
-=======
               ),
               // search
               TextFormField(
@@ -102,7 +71,6 @@ class IndexHome extends StatelessWidget {
                 height: 10,
               ),
               // list view,
->>>>>>> d637de200ccefbaf4d620a7cb1bf936d482e0663:lib/Screens/indexhome.dart
             ],
           ),
         ),

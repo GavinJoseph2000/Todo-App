@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nothing/Screens/settings.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
@@ -22,16 +23,6 @@ class Profile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 children: [
-<<<<<<< HEAD:lib/profile.dart
-                  const Text(
-                    'Profile',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFFFFFDE),
-                      decoration: TextDecoration.none,
-                    ),
-=======
                   Row(
                     children: [
                       IconButton(
@@ -52,7 +43,6 @@ class Profile extends StatelessWidget {
                         ),
                       ),
                     ],
->>>>>>> d637de200ccefbaf4d620a7cb1bf936d482e0663:lib/Screens/profile.dart
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 20),
@@ -125,11 +115,7 @@ class Profile extends StatelessWidget {
                       Padding(
                           padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
-<<<<<<< HEAD:lib/profile.dart
-                            'images/setting.png',
-=======
                             'images/settings.png',
->>>>>>> d637de200ccefbaf4d620a7cb1bf936d482e0663:lib/Screens/profile.dart
                             color: const Color(0xFFFFFFDE),
                           )),
                       const Text(
@@ -142,7 +128,9 @@ class Profile extends StatelessWidget {
                       ),
                       const Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(Settings());
+                        },
                         icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
@@ -269,11 +257,7 @@ class Profile extends StatelessWidget {
                       Padding(
                           padding: const EdgeInsets.only(left: 5.0, right: 5.0),
                           child: Image.asset(
-<<<<<<< HEAD:lib/profile.dart
-                            'images/menu.png',
-=======
                             'images/profilemenu.png',
->>>>>>> d637de200ccefbaf4d620a7cb1bf936d482e0663:lib/Screens/profile.dart
                             color: const Color(0xFFFFFFDE),
                           )),
                       const Text(
