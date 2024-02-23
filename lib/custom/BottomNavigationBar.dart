@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Categories.dart';
+import 'package:nothing/Screens/Categories.dart';
 import 'package:nothing/Screens/focus.dart';
 import 'package:nothing/Screens/indexhome.dart';
 import 'package:nothing/Screens/profile.dart';
 import 'package:nothing/custom/task.dart';
-
 
 class bottomNavigationBar extends StatefulWidget {
   const bottomNavigationBar({super.key});
@@ -53,7 +52,7 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
                         child: Column(children: [
                           IconButton(
                               onPressed: () {
-                               Get.off(IndexHome());
+                                Get.off(IndexHome());
                               },
                               icon: const Icon(
                                 Icons.home,

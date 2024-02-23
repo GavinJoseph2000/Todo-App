@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/Categories.dart';
+import 'package:nothing/Screens/Categories.dart';
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class IndexHome extends StatelessWidget {
@@ -77,4 +77,4 @@ class IndexHome extends StatelessWidget {
       ),
     );
   }
-  }
+}
