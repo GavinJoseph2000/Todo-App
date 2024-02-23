@@ -71,7 +71,7 @@ class Settings extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('images/square.png'),
+                      Image.asset('images/lang.png'),
                       const Padding(
                         padding: EdgeInsets.only(right: 160),
                         child: Text('Enable backup'),
@@ -91,7 +91,7 @@ class Settings extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('images/share.png'),
+                      Image.asset('images/import.png'),
                       const Padding(
                         padding: EdgeInsets.only(right: 150),
                         child: Text('Share app'),

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/onboarding.dart';
-import 'package:nothing/onboarding2.dart';
+import 'package:nothing/Screens/intro.dart';
+import 'package:nothing/Screens/onboarding1.dart';
+import 'package:nothing/Screens/onboarding2.dart';
 
-class Intro extends StatelessWidget {
-  const Intro({super.key});
+class Onboarding extends StatelessWidget {
+  const Onboarding({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Align(
@@ -29,7 +30,7 @@ class Intro extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
-                  child: Image.asset("images/manage.png")),
+                  child: Image.asset("images/create.png")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -40,7 +41,7 @@ class Intro extends StatelessWidget {
                       height: 5,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.white24,
                       ),
                     ),
                   ),
@@ -51,7 +52,7 @@ class Intro extends StatelessWidget {
                       height: 5,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white38,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -62,7 +63,7 @@ class Intro extends StatelessWidget {
                       height: 5,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white24,
+                        color: Colors.white38,
                       ),
                     ),
                   ),
@@ -72,7 +73,7 @@ class Intro extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
                 child: const Text(
-                  'Manage your tasks',
+                  'Create daily routine',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
@@ -82,7 +83,7 @@ class Intro extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                 child: const Text(
-                  'You can easily manage all of your tasks daily tasks in DoMe for free',
+                  'in Uptodo you can create your personalized routine to stay productive',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -98,12 +99,26 @@ class Intro extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        decoration: BoxDecoration(border: Border.all()),
-                        margin: const EdgeInsets.only(left: 250, top: 60),
+                        padding: const EdgeInsets.only(right: 80),
+                        child: TextButton(
+                          onPressed: () {
+                            Get.to(const Intro());
+                          },
+                          child: const Text(
+                            'BACK',
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 50),
                         height: 40,
                         child: TextButton(
                           onPressed: () {
-                            Get.to(const Onboarding());
+                            Get.to(const Onboarding1());
                           },
                           style: const ButtonStyle(
                               shape: MaterialStatePropertyAll(
@@ -118,7 +133,7 @@ class Intro extends StatelessWidget {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )

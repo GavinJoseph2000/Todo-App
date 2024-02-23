@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FocusMode extends StatelessWidget {
   @override
@@ -8,22 +9,19 @@ class FocusMode extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back_ios)),
+      ),
       body: Container(
         height: screenHeight,
         width: screenWidth,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              TextButton(
-                onPressed: () {
-                  // Get.to(const Onboarding2());
-                },
-                child: const Text(
-                  'SKIP',
-                  style:
-                      TextStyle(height: 5, color: Colors.white, fontSize: 18),
-                ),
-              ),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 40.0),
                 child: Text(
@@ -51,7 +49,7 @@ class FocusMode extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 10),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/onboarding2.dart';
+import 'package:nothing/Screens/onboarding.dart';
+import 'package:nothing/Screens/onboarding2.dart';
 
-class Onboarding1 extends StatelessWidget {
-  const Onboarding1({super.key});
+class Intro extends StatelessWidget {
+  const Intro({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: SafeArea(
           child: Column(
             children: <Widget>[
               Align(
@@ -28,7 +29,7 @@ class Onboarding1 extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10),
-                  child: Image.asset("images/organize.png")),
+                  child: Image.asset("images/manage.png")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -36,10 +37,10 @@ class Onboarding1 extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 50, left: 100),
                     child: Container(
                       margin: const EdgeInsets.only(right: 10),
-                      height: 4,
+                      height: 5,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white24,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -61,7 +62,7 @@ class Onboarding1 extends StatelessWidget {
                       height: 5,
                       width: 35,
                       decoration: const BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.white24,
                       ),
                     ),
                   ),
@@ -71,21 +72,20 @@ class Onboarding1 extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
                 child: const Text(
-                  'Organize your tasks',
+                  'Manage your tasks',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700),
+                    color: Colors.white,
+                    fontSize: 32,
+                  ),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                 child: const Text(
-                  'You can organige your daily tasks by adding your tasks into separate categories ',
+                  'You can easily manage all of your tasks daily tasks in DoMe for free',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
-                    fontWeight: FontWeight.w400,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -98,26 +98,12 @@ class Onboarding1 extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        padding: const EdgeInsets.only(right: 80, top: 80),
-                        child: TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Text(
-                            'Back',
-                            style: TextStyle(color: Colors.white, fontSize: 18),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 50, top: 80),
+                        decoration: BoxDecoration(border: Border.all()),
+                        margin: const EdgeInsets.only(left: 250, top: 60),
                         height: 40,
                         child: TextButton(
                           onPressed: () {
-                            Get.to(const Onboarding2());
+                            Get.to(const Onboarding());
                           },
                           style: const ButtonStyle(
                               shape: MaterialStatePropertyAll(
@@ -127,12 +113,12 @@ class Onboarding1 extends StatelessWidget {
                               backgroundColor:
                                   MaterialStatePropertyAll(Color(0XFFA020F0))),
                           child: const Text(
-                            'Get Started',
+                            'NEXT',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               )
