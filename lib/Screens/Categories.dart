@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Addcategories.dart';
+import 'package:nothing/Screens/Addcategories.dart';
+
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 
