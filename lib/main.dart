@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/indexhome.dart';
-import 'package:nothing/Screens/remainder.dart';
-import 'package:nothing/Screens/remainder.dart';
-
 import 'package:nothing/Screens/splashscreen.dart';
 
 void main() {
@@ -16,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SplashScreen(),
+      home: const SplashScreen(),
       theme: ThemeData.dark(),
     );
   }
