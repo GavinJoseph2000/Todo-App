@@ -1,6 +1,6 @@
+import 'package:nothing/custom/task.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import '../models/todomodel.dart';
 
 class DatabaseHelper {
   static Database? _database;
@@ -22,6 +22,7 @@ class DatabaseHelper {
       await db.execute('''
           CREATE TABLE $tableName (
             id INTEGER PRIMARY KEY,
+            title Text,
             description TEXT,
             dateTime TEXT,
             status INTEGER,
@@ -33,13 +34,20 @@ class DatabaseHelper {
     });
   }
 
-  Future<int> insertTodo(String description, DateTime dateTime, bool status,
-      String category, bool isActive, String createdDateTime) async {
+  Future<int> insertTodo(
+      String title,
+      String description,
+      DateTime dateTime,
+      bool status,
+      String category,
+      bool isActive,
+      String createdDateTime) async {
     final Database db = await database;
 
     int id = await db.insert(
       tableName,
       {
+        'title': title,
         'description': description,
         'dateTime': dateTime.toIso8601String(),
         'status': status ? 1 : 0,
@@ -61,6 +69,7 @@ class DatabaseHelper {
     return results.map((map) {
       return Todo(
         id: map['id'],
+        title: map['title'],
         description: map['description'],
         dateTime: DateTime.parse(map['dateTime']),
         status: map['status'] == 1 ? true : false,
@@ -77,6 +86,44 @@ class DatabaseHelper {
     await db.update(
       tableName,
       {'status': newStatus ? 1 : 0},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<void> updateTodo(
+    int id,
+    String title,
+    String description,
+    DateTime dateTime,
+    bool status,
+    String category,
+    bool isActive,
+    String createdDateTime,
+  ) async {
+    final Database db = await database;
+
+    await db.update(
+      tableName,
+      {
+        'title': title,
+        'description': description,
+        'dateTime': dateTime.toIso8601String(),
+        'status': status ? 1 : 0,
+        'category': category,
+        'isActive': isActive ? 1 : 0,
+        'createdDateTime': createdDateTime,
+      },
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<void> deleteTodo(int id) async {
+    final Database db = await database;
+
+    await db.delete(
+      tableName,
       where: 'id = ?',
       whereArgs: [id],
     );
