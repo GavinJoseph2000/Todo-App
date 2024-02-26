@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/Screens/Login.dart';
+import 'package:nothing/Screens/indexhome.dart';
 
 class Onboarding2 extends StatelessWidget {
   const Onboarding2({super.key});
@@ -44,7 +45,8 @@ class Onboarding2 extends StatelessWidget {
               width: 300,
               child: TextButton(
                 onPressed: () {
-                  Get.to(const LoginPage());
+                  // Get.to(const LoginPage());
+                  Get.to(IndexHome());
                 },
                 style: const ButtonStyle(
                     shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
@@ -65,8 +67,8 @@ class Onboarding2 extends StatelessWidget {
                   BoxDecoration(border: Border.all(color: Colors.deepPurple)),
               child: TextButton(
                 onPressed: () {
-                  Get.to(LoginPage());
-                },
+                  // Get.to(LoginPage());
+                  Get.to(IndexHome());               },
                 style: const ButtonStyle(
                   shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
                       borderRadius: BorderRadius.all(
@@ -74,7 +76,7 @@ class Onboarding2 extends StatelessWidget {
                   ))),
                 ),
                 child: const Text(
-                  'CREATEACCOUNT',
+                  'CREATE ACCOUNT',
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
