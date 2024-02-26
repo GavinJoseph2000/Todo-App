@@ -1,4 +1,13 @@
+<<<<<<< HEAD
+#Mon Feb 26 16:33:57 IST 2024
+=======
+<<<<<<< HEAD
+#Mon Feb 26 12:42:42 IST 2024
+base.0=C\:\\Users\\Kusuma\\to-do\\Todo-App\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+=======
 #Mon Feb 26 10:21:20 IST 2024
+>>>>>>> origin/main
 base.0=C\:\\Users\\Sarit\\todoproject\\Todo-App\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+>>>>>>> b35ca39c947b110a22370bf8abc021306683cd05
 path.0=classes.dex
 renamed.0=classes.dex

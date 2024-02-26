@@ -11,7 +11,7 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   DateTime _dateTime = DateTime.now();
   final titleController = TextEditingController();
-  final descriptionController = TextEditingController();
+
   bool validate = false;
 
   // date picker
@@ -57,7 +57,7 @@ class _TaskState extends State<Task> {
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth,
-        height: 300,
+        height: 200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,25 +70,6 @@ class _TaskState extends State<Task> {
                   errorText: validate ? "please enter title" : null,
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Expanded(
-                flex: 4,
-                child: TextFormField(
-                  controller: descriptionController,
-                  maxLength: 100,
-                  minLines: 1,
-                  maxLines: 3,
-                  decoration: InputDecoration(
-                    errorText: validate ? "please enter description" : null,
-                    labelText: 'Description',
-                    border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
                   ),
                 ),
               ),
@@ -155,11 +136,10 @@ class _TaskState extends State<Task> {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.only(left: 180, top: 10),
+                padding: const EdgeInsets.only(left: 220, top: 10),
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      validate = titleController.text.isEmpty;
                       validate = titleController.text.isEmpty;
                     });
                     if (!validate) {
@@ -181,4 +161,3 @@ class _TaskState extends State<Task> {
     );
   }
 }
-

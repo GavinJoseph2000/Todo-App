@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/Screens/Addcategories.dart';
+<<<<<<< HEAD
 
 import 'package:nothing/custom/BottomNavigationBar.dart';
+=======
+>>>>>>> saritha
 
+import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class Categories extends StatefulWidget {
   const Categories({Key? key});
@@ -55,7 +59,8 @@ class _CategoriesState extends State<Categories> {
                                     height: 50,
                                     width: 50,
                                     color: Colors.blue,
-                                    child: const Icon(Icons.local_grocery_store),
+                                    child:
+                                        const Icon(Icons.local_grocery_store),
                                   ),
                                   const Text("Grocery")
                                 ],
@@ -110,7 +115,8 @@ class _CategoriesState extends State<Categories> {
                                   Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
-                                      color:const  Color.fromARGB(255, 78, 167, 70),
+                                      color: const Color.fromARGB(
+                                          255, 78, 167, 70),
                                     ),
                                     width: 50,
                                     height: 50,
@@ -121,7 +127,8 @@ class _CategoriesState extends State<Categories> {
                                       icon: const Icon(Icons.add),
                                     ),
                                   ),
-                                  const Text("new", textAlign: TextAlign.center),
+                                  const Text("new",
+                                      textAlign: TextAlign.center),
                                 ],
                               ),
                             ),
