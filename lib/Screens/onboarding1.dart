@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nothing/Screens/Login.dart';
+import 'package:nothing/Screens/indexhome.dart';
 import 'package:nothing/Screens/onboarding2.dart';
 
 class Onboarding1 extends StatelessWidget {
@@ -117,7 +119,8 @@ class Onboarding1 extends StatelessWidget {
                         height: 40,
                         child: TextButton(
                           onPressed: () {
-                            Get.to(const Onboarding2());
+                            // Get.to(const Onboarding2());
+                            Get.to(IndexHome());
                           },
                           style: const ButtonStyle(
                               shape: MaterialStatePropertyAll(
