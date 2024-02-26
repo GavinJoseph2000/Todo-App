@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nothing/Screens/Addcategories.dart';
-<<<<<<< HEAD
-
-import 'package:nothing/custom/BottomNavigationBar.dart';
-=======
->>>>>>> saritha
 
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
