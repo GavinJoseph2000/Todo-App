@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nothing/Screens/Categories.dart';
 import 'package:nothing/custom/BottomNavigationBar.dart';
 
 class IndexHome extends StatelessWidget {
@@ -14,7 +15,7 @@ class IndexHome extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // index
+              // Index header
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -24,7 +25,7 @@ class IndexHome extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Index",
+                    "Home",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                   Icon(Icons.person)

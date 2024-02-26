@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nothing/Screens/settings.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
@@ -127,7 +128,9 @@ class Profile extends StatelessWidget {
                       ),
                       const Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(Settings());
+                        },
                         icon: const Icon(
                           Icons.keyboard_arrow_right,
                           size: 40,
