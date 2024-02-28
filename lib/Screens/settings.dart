@@ -7,7 +7,7 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenheight = MediaQuery.of(context).size.height;
-    var screenwidth = MediaQuery.of(context).size.width;
+    var screenwidth  = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -17,6 +17,7 @@ class Settings extends StatelessWidget {
           icon: const Icon(Icons.keyboard_arrow_left),
         ),
         title: const Padding(
+          
           padding: EdgeInsets.only(left: 80),
           child: Text('Settings'),
         ),
@@ -24,7 +25,7 @@ class Settings extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Container(
+          child: SizedBox(
             height: screenheight,
             width: screenwidth,
             child: Column(

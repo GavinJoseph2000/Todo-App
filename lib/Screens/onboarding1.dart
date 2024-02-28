@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/Login.dart';
-import 'package:nothing/Screens/indexhome.dart';
-import 'package:nothing/Screens/onboarding2.dart';
+import 'package:todos/Screens/indexhome.dart';
+
 
 class Onboarding1 extends StatelessWidget {
   const Onboarding1({super.key});
@@ -19,7 +18,7 @@ class Onboarding1 extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    Get.to(const Onboarding2());
+                    Get.to(IndexHome());
                   },
                   child: const Text(
                     'SKIP',
@@ -119,7 +118,6 @@ class Onboarding1 extends StatelessWidget {
                         height: 40,
                         child: TextButton(
                           onPressed: () {
-                            // Get.to(const Onboarding2());
                             Get.to(IndexHome());
                           },
                           style: const ButtonStyle(

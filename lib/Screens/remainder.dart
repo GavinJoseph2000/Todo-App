@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/custom/BottomNavigationBar.dart';
+import 'package:get/get.dart';
+import 'package:todos/custom/bottomnavbar.dart';
 
 class Remainder extends StatefulWidget {
-  Remainder({super.key});
+  const Remainder({super.key});
 
   @override
   State<Remainder> createState() => _RemainderState();
@@ -12,30 +13,27 @@ class _RemainderState extends State<Remainder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const bottomNavigationBar(),
+      bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(25.0),
+             Padding(
+              padding: const EdgeInsets.all(25.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image(
-                    image: AssetImage(
-                      "images/menu.png",
-                    ),
-                  ),
-                  Text(
+                  IconButton(onPressed: (){Get.back();}, 
+                          icon: const Icon(Icons.arrow_back_ios)),
+                  const Text(
                     "Remainders",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
-                  Icon(Icons.person)
+                  const Icon(Icons.person)
                 ],
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                   color: Color(0XFF363636),
@@ -89,7 +87,7 @@ class _RemainderState extends State<Remainder> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                   color: Color(0XFF363636),
