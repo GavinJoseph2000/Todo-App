@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/indexhome.dart';
+import 'package:todos/Screens/indexhome.dart';
 
  class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  Login1State createState() => Login1State();
+  LoginState createState() => LoginState();
 }
 
-class Login1State extends State<LoginPage> {
+class LoginState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _mobileController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -75,7 +75,7 @@ class Login1State extends State<LoginPage> {
                   } else if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
                     return 'Enter a valid name with only letters and spaces';
                   }
-                  return null;
+                  return null; 
                 },
               ),
               Container(

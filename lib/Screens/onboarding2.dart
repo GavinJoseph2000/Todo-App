@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/Login.dart';
-import 'package:nothing/Screens/indexhome.dart';
+import 'package:todos/Screens/indexhome.dart';
 
 class Onboarding2 extends StatelessWidget {
   const Onboarding2({super.key});

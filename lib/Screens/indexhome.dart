@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nothing/Screens/Categories.dart';
-import 'package:nothing/custom/BottomNavigationBar.dart';
+import 'package:get/get.dart';
+import 'package:todos/Screens/profile.dart';
+import 'package:todos/custom/bottomnavbar.dart';
 
 class IndexHome extends StatelessWidget {
   IndexHome({super.key});
@@ -8,33 +9,31 @@ class IndexHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const bottomNavigationBar(),
+      bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Index header
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image(
+                  const Image(
                     image: AssetImage(
                       "images/menu.png",
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Home",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
-                  Icon(Icons.person)
+                  IconButton(icon: const Icon(Icons.person_2), onPressed:(){ Get.to(Profile()); },)
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              // search
               TextFormField(
                 controller: _controller,
                 decoration: const InputDecoration(
@@ -49,7 +48,6 @@ class IndexHome extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              // today
               Container(
                 padding: const EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
@@ -70,7 +68,6 @@ class IndexHome extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              // list view,
             ],
           ),
         ),

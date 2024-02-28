@@ -1,4 +1,4 @@
-name: nothing
+name: todos
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get:
   fl_chart: ^0.36.0
+  sqflite: ^2.3.2
+  path: ^1.8.3
 
 dev_dependencies:
   flutter_test:
