@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:todos/Screens/Categories.dart';
+import 'package:todos/Screens/remainder.dart';
 import '../Screens/focus.dart';
-import '../Screens/profile.dart';
-import '../Screens/settings.dart';
 import 'task.dart';
 
 
@@ -71,14 +70,14 @@ class BottomNavBarState extends State<BottomNavBar> {
                         child: Column(children: [
                           IconButton(
                               onPressed: () {
-                                Get.to(const Settings());
+                                Get.to(const Categories());
                               },
                               icon: const Icon(
-                                Icons.settings,
+                                Icons.category,
                                 color: Colors.white,
                               )),
                           const Text(
-                            'Settings',
+                            'Categories',
                             style: TextStyle(color: Colors.white),
                           )
                         ]),
@@ -102,7 +101,7 @@ class BottomNavBarState extends State<BottomNavBar> {
                                 Get.to(const FocusMode());
                               },
                               icon: const Icon(
-                                Icons.access_time,
+                                Icons.center_focus_strong,
                                 color: Colors.white,
                               )),
                           const Text(
@@ -119,14 +118,14 @@ class BottomNavBarState extends State<BottomNavBar> {
                         child: Column(children: [
                           IconButton(
                               onPressed: () {
-                                Get.to(const Profile());
+                                Get.to(const Remainder());
                               },
                               icon: const Icon(
-                                Icons.person_2,
+                                Icons.access_time,
                                 color: Colors.white,
                               )),
                           const Text(
-                            'Profile',
+                            'Remainder',
                             style: TextStyle(color: Colors.white),
                           )
                         ]),
@@ -138,20 +137,20 @@ class BottomNavBarState extends State<BottomNavBar> {
             ],
           ),
         ),
-        Positioned(
-            top: -38,
-            child: Container(
-                width: 65,
-                height: 65,
-                decoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(50)),
-                child: IconButton(
-                    onPressed: showDailog,
-                    icon: const Icon(
-                      Icons.add,
-                      size: 35,
-                    )))),
+        Container(
+            height: 65,
+            width: 65,
+            decoration: BoxDecoration(
+                color: Colors.pink,
+                borderRadius: BorderRadius.circular(50)),
+            child: IconButton(
+                onPressed: showDailog,
+                icon: const Icon(
+                  Icons.add,
+                  size: 35,
+        )
+       )
+       ),
       ],
     );
   }
