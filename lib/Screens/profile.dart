@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/settings.dart';
+import 'package:todos/Screens/settings.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

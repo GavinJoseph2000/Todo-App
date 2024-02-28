@@ -13,12 +13,12 @@ class DialogBoxState extends State<DialogBox> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('title'),
-            content: TextField(),
+            title: const Text('title'),
+            content: const TextField(),
             actions: [
               MaterialButton(
                 onPressed: () {},
-                child: Text('button'),
+                child: const Text('button'),
               )
             ],
           );

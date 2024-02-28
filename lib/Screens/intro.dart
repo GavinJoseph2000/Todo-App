@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nothing/Screens/onboarding.dart';
-import 'package:nothing/Screens/onboarding2.dart';
+import 'package:todos/Screens/indexhome.dart';
+import 'package:todos/Screens/onboarding.dart';
+
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
@@ -18,7 +19,7 @@ class Intro extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    Get.to(const Onboarding2());
+                    Get.to( IndexHome());
                   },
                   child: const Text(
                     'SKIP',

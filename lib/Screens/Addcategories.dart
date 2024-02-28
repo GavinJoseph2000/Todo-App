@@ -66,13 +66,10 @@ class _AddCategoriesState extends State<AddCategories> {
                           flex: 4,
                           child: TextButton(
                             onPressed: () {
-                              setState(() {
-                                validate = nameController.text.isEmpty;
-                                validate = nameController.text.isEmpty;
-                              });
-                              if (!validate) {
-                                Get.back();
-                              }
+                             Get.back();
+                              // if (!validate) {
+                              //   Get.back();
+                              // }
                             },
                             style: ButtonStyle(
                               side: const MaterialStatePropertyAll(
