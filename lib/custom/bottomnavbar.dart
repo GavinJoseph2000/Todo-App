@@ -105,7 +105,7 @@ class BottomNavBarState extends State<BottomNavBar> {
                                 color: Colors.white,
                               )),
                           const Text(
-                            'Focuse',
+                            'Focus',
                             style: TextStyle(color: Colors.white),
                           )
                         ]),
@@ -141,7 +141,7 @@ class BottomNavBarState extends State<BottomNavBar> {
             height: 65,
             width: 65,
             decoration: BoxDecoration(
-                color: Colors.pink,
+                color: Color(0XFFA020F0),
                 borderRadius: BorderRadius.circular(50)),
             child: IconButton(
                 onPressed: showDailog,

@@ -2,37 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todos/Screens/profile.dart';
 import 'package:todos/custom/bottomnavbar.dart';
+import 'package:todos/custom/task.dart';
 import 'package:todos/models/todomodal.dart';
 import 'package:todos/services/data.dart';
 
 class IndexHome extends StatefulWidget {
-  const IndexHome({Key? key}) : super(key: key);
+  const IndexHome({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _IndexHomeState createState() => _IndexHomeState();
 }
 
 class _IndexHomeState extends State<IndexHome> {
   final TextEditingController _controller = TextEditingController();
   final DatabaseHelper _databaseHelper = DatabaseHelper();
-  bool isFavourte = true;
   List<Todo> _todos = [];
+  List<bool> _isDoneList = [];
+  
 
   @override
   void initState() {
     super.initState();
     _fetchTodos();
   }
+  run(){}
 
   Future<void> _fetchTodos() async {
     List<Todo> todos = await _databaseHelper.fetchAllTodos();
     setState(() {
       _todos = todos;
+      _isDoneList = List<bool>.filled(todos.length, false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
+  void showDailog() {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text(
+                'Edit Task',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              ),
+              content: Task(),
+            );
+          });
+    }
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
@@ -51,6 +72,10 @@ class _IndexHomeState extends State<IndexHome> {
           )
         ],
       ),
+      drawer:Drawer(
+        child: Container(color: Colors.purple[200],
+        child: const DrawerHeader(child: Text('hai')),),
+      ) ,
       bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: Padding(
@@ -105,28 +130,38 @@ class _IndexHomeState extends State<IndexHome> {
                     itemBuilder: (context, index) {
                       Todo todo = _todos[index];
                       return Card(
-                       
-                        child:ListTile(
+                        child: ListTile(
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(todo.title, style: const TextStyle(color: Colors.black)),
-                              TextButton(
-                                style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(isFavourte ? Colors.white : Colors.green),
-                                ),
-                                onPressed: () {
-                                  setState(() => isFavourte = !isFavourte);
-                                },
-                                child: const Text('done',style: TextStyle(color: Colors.black),),
+                              Text(todo.title,),
+                              Row(
+                                children: [
+                                  ElevatedButton(onPressed:
+                                  ()=>showDialog,
+                                  style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.grey)),
+                                  child: const Text('move',style: TextStyle(color: Colors.black),)),
+                                  const SizedBox(width: 5,),
+                                  TextButton(
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.all(
+                                        _isDoneList[index] ? Colors.green : Colors.white,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _isDoneList[index] = !_isDoneList[index];
+                                      });
+                                    },
+                                    child: const Text('done', style: TextStyle(color: Colors.black)),
+                                  ),
+                                ],
                               ),
-                             
                             ],
                           ),
-                          subtitle: Text(todo.category, style: const TextStyle(color: Colors.black)),
-                          tileColor: Colors.purple[300],
+                          subtitle: Text(todo.category, ),
+                          tileColor: Color(0XFF363636),
                           shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                         
                         ),
                       );
                     },

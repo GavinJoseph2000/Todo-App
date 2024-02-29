@@ -71,8 +71,8 @@ class Profile extends StatelessWidget {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             shape: const RoundedRectangleBorder(),
-                            primary: const Color(0xFF363636),
-                            onPrimary: const Color(0xFFFFFFDE),
+                            // primary: const Color(0xFF363636),
+                            // onPrimary: const Color(0xFFFFFFDE),
                             padding: const EdgeInsets.fromLTRB(45, 24, 45, 24),
                           ),
                           child: const Text('10 Task left'),

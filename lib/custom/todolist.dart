@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todos/custom/task.dart';
 import '../controls/todocontroller.dart';
 import '../models/todomodal.dart';
+
+
 class TodoListPage extends StatelessWidget {
   final TodoController todoController = Get.find();
 
@@ -25,7 +28,7 @@ class TodoListPage extends StatelessWidget {
               children: [
                 IconButton(
                   icon: const Icon(Icons.edit),
-                  onPressed: () {},
+                  onPressed: () {Get.to(Task());},
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete),
