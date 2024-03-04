@@ -143,8 +143,6 @@ class _IndexHomeState extends State<IndexHome> {
                       itemCount: _todos.length,
                       itemBuilder: (context, index) {
                         Todo todo = _todos[index];
-                        
-                        
                         return Card(
                           child: ListTile(
                             title: Row(
