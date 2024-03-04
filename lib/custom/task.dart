@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todos/models/todomodal.dart';
 import '../controls/todocontroller.dart';
-
 import 'todolist.dart';
+
 class Task extends StatefulWidget {
   final TodoController todoController = Get.put(TodoController());
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController titleController = TextEditingController();
-  Task({super.key});
+  Task({super.key, required void Function(Todo newTodo) onTaskAdded});
 
   @override
   State<Task> createState() => _TaskState();
@@ -74,7 +75,9 @@ class _TaskState extends State<Task> {
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
                   ),
+                  
                 ),
+                
               ),
             ),
             // Padding(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todos/Screens/Categories.dart';
 import 'package:todos/Screens/remainder.dart';
+import 'package:todos/models/todomodal.dart';
 import '../Screens/focus.dart';
 import 'task.dart';
 
@@ -25,7 +26,7 @@ class BottomNavBarState extends State<BottomNavBar> {
                 'Add Task',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
-              content: Task(),
+              content: Task(onTaskAdded: (Todo newTodo) {  },),
             );
           });
     }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todos/custom/task.dart';
 import '../controls/todocontroller.dart';
 import '../models/todomodal.dart';
 
@@ -12,6 +11,7 @@ class TodoListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo List'),
@@ -28,7 +28,7 @@ class TodoListPage extends StatelessWidget {
               children: [
                 IconButton(
                   icon: const Icon(Icons.edit),
-                  onPressed: () {Get.to(Task());},
+                  onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete),
