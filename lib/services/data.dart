@@ -97,7 +97,7 @@ class DatabaseHelper {
   Future<void> updateTodo(
     int id,
     String title,
-    String description,
+    
     DateTime dateTime,
     bool status,
     String category,
@@ -110,7 +110,7 @@ class DatabaseHelper {
       tableName,
       {
         'title': title,
-        'description': description,
+      
         'dateTime': dateTime.toIso8601String(),
         'status': status ? 1 : 0,
         'category': category,

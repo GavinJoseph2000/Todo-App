@@ -32,6 +32,7 @@ class _IndexHomeState extends State<IndexHome> {
             todo.title.toLowerCase().contains(query.toLowerCase()) ||
             todo.category.toLowerCase().contains(query.toLowerCase()) ||
             todo.dateTime.day.toString().toLowerCase().contains(query.toLowerCase())).toList();
+        
       } else {
         _todos = todos;
       }
@@ -142,6 +143,8 @@ class _IndexHomeState extends State<IndexHome> {
                       itemCount: _todos.length,
                       itemBuilder: (context, index) {
                         Todo todo = _todos[index];
+                        
+                        
                         return Card(
                           child: ListTile(
                             title: Row(

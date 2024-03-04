@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../models/todomodal.dart';
 import '../services/data.dart';
 

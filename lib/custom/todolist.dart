@@ -48,9 +48,13 @@ class TodoListPage extends StatelessWidget {
                               child: const Text('Cancel'),
                             ),
                             TextButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 todoController.deleteTodo(todo.id);
+                                
                                 Get.back();
+                                todoController.update();
+
+                                
                               },
                               child: const Text('Delete'),
                             ),
