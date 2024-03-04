@@ -83,9 +83,9 @@ class Profile extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
+                            foregroundColor: const Color(0xFFFFFFDE),
+                            backgroundColor: const Color(0xFF363636),
                             shape: const RoundedRectangleBorder(),
-                            primary: const Color(0xFF363636),
-                            onPrimary: const Color(0xFFFFFFDE),
                             padding: const EdgeInsets.fromLTRB(45, 24, 45, 24),
                           ),
                           child: const Text('5 Task done'),
@@ -338,7 +338,7 @@ class Profile extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.transparent,
+                          backgroundColor: Colors.transparent,
                           elevation: 0,
                         ),
                         child: Image.asset(
