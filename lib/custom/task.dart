@@ -21,7 +21,7 @@ class _TaskState extends State<Task> {
 
   showDatePickerDialog() {
     showDatePicker(
-      context: context,
+      context: context, 
       initialDate: _dateTime,
       firstDate: DateTime(1990),
       lastDate: DateTime(2030),
@@ -185,6 +185,7 @@ class _TaskState extends State<Task> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
+                        
                       ),
                      // ignore: prefer_const_constructors
                      child: Text('Cancel'))),

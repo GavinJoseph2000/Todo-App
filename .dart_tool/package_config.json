@@ -68,6 +68,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "flutter_colorpicker",
+      "rootUri": "file:///C:/Users/Sarit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_colorpicker-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/Sarit/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-3.0.1",
       "packageUri": "lib/",
@@ -242,7 +248,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-03-04T12:42:38.522260Z",
+  "generated": "2024-03-06T06:27:28.073210Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }

@@ -11,7 +11,6 @@ class TodoController extends GetxController {
     getAllTodos();
   }
 
-  
   Future<void> addTodo(String title, String description, DateTime dateTime,
       bool status, String category) async {
     DatabaseHelper dbHelper = DatabaseHelper();
@@ -21,7 +20,6 @@ class TodoController extends GetxController {
 
     int todoId = await dbHelper.insertTodo(
       title,
-      description,
       dateTime,
       status,
       category,
@@ -32,11 +30,10 @@ class TodoController extends GetxController {
     Todo newTodo = Todo(
       title: title,
       id: todoId,
-      description: description,
       dateTime: dateTime,
       status: status,
       category: category,
-      isActive: true,
+      isActive: true, 
       createdDateTime: now,
     );
 

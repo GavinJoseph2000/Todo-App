@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:todos/controls/categorycontroller.dart';
 
 class AddCategories extends StatefulWidget {
   const AddCategories({Key? key}) : super(key: key);
@@ -9,9 +11,24 @@ class AddCategories extends StatefulWidget {
 }
 
 class _AddCategoriesState extends State<AddCategories> {
+  final CategoryController category = Get.put(CategoryController());
+  late TextEditingController nameController;
+
+  Color? selectedColor = Colors.blue; // Set default color
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
+
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController nameController = TextEditingController();
-  bool validate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +37,7 @@ class _AddCategoriesState extends State<AddCategories> {
         child: Padding(
           padding: const EdgeInsets.only(top: 50),
           child: Container(
-            margin:const EdgeInsets.all(15),
+            margin: const EdgeInsets.all(15),
             child: Form(
               key: _formKey,
               child: Column(
@@ -30,35 +47,43 @@ class _AddCategoriesState extends State<AddCategories> {
                     'Create New Category',
                     style: TextStyle(fontSize: 20),
                   ),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [const Padding(
-                          padding: EdgeInsets.only(right: 250),
-                          child: Text("Category name:"),
-                        ),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: "Enter category name",
-                            ),
-                            controller: nameController,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Full name is required';
-                              } else if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
-                                return 'Enter a valid name with only letters and spaces';
-                              }
-                              return null;
-                            },
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: "Enter category name",
                           ),
-                        ],
-                      ),
+                          controller: nameController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Category name is required';
+                            } else if (!RegExp(r'^[a-zA-Z ]+$').hasMatch(value)) {
+                              return 'Enter a valid name with only letters and spaces';
+                            }
+                            return null;
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            child: BlockPicker(
+                              pickerColor: selectedColor!,
+                              onColorChanged: (Color color) {
+                                setState(() {
+                                  selectedColor = color;
+                                });
+                              },
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 500),
+                    padding: const EdgeInsets.only(top: 160),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -66,16 +91,13 @@ class _AddCategoriesState extends State<AddCategories> {
                           flex: 4,
                           child: TextButton(
                             onPressed: () {
-                             Get.back();
-                              // if (!validate) {
-                              //   Get.back();
-                              // }
+                              Get.back();
                             },
                             style: ButtonStyle(
-                              side: const MaterialStatePropertyAll(
-                                BorderSide(color: Colors.white60),
+                              side: MaterialStateProperty.all(
+                                const BorderSide(color: Colors.white60),
                               ),
-                              shape: MaterialStatePropertyAll(
+                              shape: MaterialStateProperty.all(
                                 ContinuousRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -84,27 +106,45 @@ class _AddCategoriesState extends State<AddCategories> {
                             child: const Text('Cancel'),
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                           flex: 1,
-                          child: Container(),
+                          child: SizedBox(),
                         ),
                         Expanded(
                           flex: 4,
                           child: TextButton(
-                            onPressed: () {
-                              setState(() {
-                                validate = nameController.text.isEmpty;
-                                validate = nameController.text.isEmpty;
-                              });
-                              if (!validate) {
-                                Get.back();
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                 await category.addCategory(nameController.text, selectedColor.toString());
+                                print("${nameController.text}, ${selectedColor.toString()}");
+
+    // Show a snackbar with success message
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Category Created Successfully'),
+      ),
+    );
+
+    // Navigate back after a delay
+    Future.delayed(Duration(seconds: 2), () {
+      Get.back();
+    });
+                                 // Pass selectedColor to addCategory
+                              
+                              } else {
+                                // Show a snackbar or toast to inform the user about validation errors.
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Please enter a valid category name.'),
+                                  ),
+                                );
                               }
                             },
                             style: ButtonStyle(
-                              side: const MaterialStatePropertyAll(
-                                BorderSide(color: Colors.white60),
+                              side: MaterialStateProperty.all(
+                                const BorderSide(color: Colors.white60),
                               ),
-                              shape: MaterialStatePropertyAll(
+                              shape: MaterialStateProperty.all(
                                 ContinuousRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
