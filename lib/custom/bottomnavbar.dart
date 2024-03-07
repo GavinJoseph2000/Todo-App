@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todos/Screens/Categories.dart';
+import 'package:todos/Screens/categories.dart';
 import 'package:todos/Screens/remainder.dart';
 import 'package:todos/models/todomodal.dart';
 import '../Screens/focus.dart';

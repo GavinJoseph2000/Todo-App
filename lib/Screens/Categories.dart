@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todos/Screens/Addcategories.dart';
+import 'package:todos/Screens/addcategories.dart';
 import 'package:todos/models/categorymodel.dart';
 import 'package:todos/services/categorydata.dart';
 
