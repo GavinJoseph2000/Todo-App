@@ -14,7 +14,7 @@ class IndexHome extends StatefulWidget {
 
 class _IndexHomeState extends State<IndexHome> {
   final TextEditingController searchController = TextEditingController();
-  final DatabaseHelper _databaseHelper = DatabaseHelper();
+ final DatabaseHelper _databaseHelper = DatabaseHelper();
   List<Todo> _todos = [];
   List<bool> _isDoneList = [];
 
