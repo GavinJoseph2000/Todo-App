@@ -1,13 +1,21 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+<<<<<<< HEAD
 
 import 'package:todos/models/todomodal.dart';
 
+=======
+import 'package:nothing/custom/task.dart';
+>>>>>>> 22c6db2691dd21cbaacd169dfd89f06107276e73
 
 class DatabaseHelper {
   static Database? _database;
   static const String tableName = 'todos';
+<<<<<<< HEAD
   static const String categoryTableName = 'categories'; // Renamed to 'categories'
+=======
+  static const String categoryTableName = 'categories';
+>>>>>>> 22c6db2691dd21cbaacd169dfd89f06107276e73
 
   Future<Database> get database async {
     if (_database != null) return _database!;
@@ -33,6 +41,7 @@ class DatabaseHelper {
             createdDateTime TEXT
           )
       ''');
+<<<<<<< HEAD
      
     });
   }
@@ -40,6 +49,38 @@ class DatabaseHelper {
  
 
 
+=======
+      await db.execute('''
+          CREATE TABLE $categoryTableName (
+            id INTEGER PRIMARY KEY,
+            name TEXT
+          )
+      ''');
+    });
+  }
+
+  Future<int> insertCategory(String name) async {
+    final Database db = await database;
+
+    int id = await db.insert(
+      categoryTableName,
+      {'name': name},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+
+    return id;
+  }
+
+  Future<List<String>> fetchAllCategories() async {
+    final Database db = await database;
+
+    List<Map<String, dynamic>> results = await db.query(categoryTableName);
+
+    return results.map<String>((map) {
+      return map['name'] as String;
+    }).toList();
+  }
+>>>>>>> 22c6db2691dd21cbaacd169dfd89f06107276e73
 
   Future<int> insertTodo(String title, DateTime dateTime, bool status,
       String category, bool isActive, String createdDateTime) async {
