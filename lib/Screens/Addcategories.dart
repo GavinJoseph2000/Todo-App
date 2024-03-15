@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:todos/Screens/Categories.dart';
 import 'package:todos/controls/categorycontroller.dart';
 
 class AddCategories extends StatefulWidget {
@@ -71,9 +72,10 @@ class _AddCategoriesState extends State<AddCategories> {
                           child: Container(
                             child: BlockPicker(
                               pickerColor: selectedColor!,
-                              onColorChanged: (Color color) {
+                              onColorChanged: (Color clr) {
                                 setState(() {
-                                  selectedColor = color;
+                                  print("SELECTED COLOR :${clr.value}");
+                                  selectedColor = clr;
                                 });
                               },
                             ),
@@ -127,7 +129,7 @@ class _AddCategoriesState extends State<AddCategories> {
 
     // Navigate back after a delay
     Future.delayed(Duration(seconds: 2), () {
-      Get.back();
+      Get.to(Categories());
     });
                                  // Pass selectedColor to addCategory
                               

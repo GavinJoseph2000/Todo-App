@@ -15,7 +15,7 @@ class DatabaseHelper {
     // If _database is null, instantiate it
     _database = await initDatabase();
     return _database!;
-  }
+  } 
 
   Future<Database> initDatabase() async {
     var databasesPath = await getDatabasesPath();
@@ -27,7 +27,7 @@ class DatabaseHelper {
             id INTEGER PRIMARY KEY,
             title TEXT,
             dateTime TEXT,
-            status INTEGER,
+            status INTEGER, 
             category TEXT,
             isActive INTEGER,
             createdDateTime TEXT
@@ -84,7 +84,8 @@ class DatabaseHelper {
     return id;
   }
 
-  Future<List<Todo>> fetchAllTodos() async {
+  Future<List<Todo>> 
+  fetchAllTodos() async {
     final Database db = await database;
 
     List<Map<String, dynamic>> results = await db.query(tableName);
@@ -101,6 +102,8 @@ class DatabaseHelper {
       );
     }).toList();
   }
+
+  
 
   Future<void> updateTodoStatus(int id, bool newStatus) async {
     final Database db = await database;

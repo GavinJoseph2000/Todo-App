@@ -1,47 +1,49 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todos/Screens/addcategories.dart';
 import 'package:todos/models/categorymodel.dart';
 import 'package:todos/services/categorydata.dart';
 
-
 class Categories extends StatefulWidget {
-  const Categories({Key? key});
+  const Categories({super.key});
 
   @override
   State<Categories> createState() => _CategoriesState();
 }
 
 class _CategoriesState extends State<Categories> {
- 
-  List<CategoryModel> _addCategory=[];
-  CategoryHelper categoryHelper = CategoryHelper();
-  
+  List<CategoryModel> _categories = [];
+  CategoryHelper _categoryHelper = CategoryHelper();
+
   @override
   void initState() {
     super.initState();
     fetchAllCategories();
   }
 
-Future<void> fetchAllCategories() async {
-  try {
-    List<Map<String, dynamic>> categoryMaps = await categoryHelper.fetchAllCategories();
-    List<CategoryModel> categories = categoryMaps.map((categoryMap) =>
-        CategoryModel(
-          category: categoryMap['name'],
-          color: categoryMap['color'],
-        )
-    ).toList();
-    setState(() {
-      _addCategory = categories;
+  Future<void> fetchAllCategories() async {
+    try {
+      // List<Map<String, dynamic>> categoryMaps = await _categoryHelper.fetchAllCategories();
+      // List<CategoryModel> categories = categoryMaps.map((categoryMap) =>
+      //     CategoryModel(
+      //       category: categoryMap['name'],
+      //       color: categoryMap['color'],
+      //     )
+      // ).toList();
+    
+    // List<CategoryModel> categories = 
+    await _categoryHelper.fetchAllCategories().then((cats) { 
+      setState(() {
+        _categories = cats;
+      });
     });
-  } catch (e) {
-    print("Error fetching categories: $e");
-  }
-}
 
- 
-  
+
+    } catch (e) {
+      print("Error fetching categories: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,23 +77,29 @@ Future<void> fetchAllCategories() async {
                       child: SizedBox(
                         height: 400,
                         width: 400,
-                        child: Scaffold(
+                        child: ListView.builder(
+                          itemCount: _categories.length,
+                          itemBuilder: (context, index) {
+                            // CategoryModel categoryModel = _categories[index];
                           
-                        body:ListView.builder(
-                    itemCount: _addCategory.length,
-               itemBuilder: (context, index) {
-             CategoryModel categoryModel = _addCategory[index];
-           return Padding(
-             padding: const EdgeInsets.all(15.0),
-             child: ListTile(
-              title: Text(categoryModel.category),
-              tileColor: Colors.blue,
-              
-             ),
-           );
-  },
-),
+                           print("COLOR VALUE : ${_categories[index].color}");
 
+                            return Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Card(
+                                child: ListTile(
+                                  title: Text(_categories[index].category),
+                                  
+                                 
+                                  // tileColor: const Color(0xfff44336),
+                                  tileColor: Color(int.parse(_categories[index].color)),
+                                 
+                                  
+                                  // tileColor: Color(int.parse(categoryModel.color.substring(1), radix: 16) + 0xFF000000),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -118,5 +126,10 @@ Future<void> fetchAllCategories() async {
         ),
       ),
     );
+  }
+
+  int getColorValue(String strClrVal)
+  { 
+    return int.parse(strClrVal.replaceAll("MaterialColor(primary value: Color(","").replaceAll("))", ""));
   }
 }

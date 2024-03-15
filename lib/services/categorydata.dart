@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
-
-
+import 'package:todos/models/categorymodel.dart';
 
 class CategoryHelper {
   static Database? _database;
@@ -27,7 +26,7 @@ class CategoryHelper {
       CREATE TABLE IF NOT EXISTS categories (
         id INTEGER PRIMARY KEY,
         name TEXT,
-        color TEXT
+        color 
       )
     ''');
   });
@@ -46,10 +45,35 @@ class CategoryHelper {
     return id;
   }
 
-  Future<List<Map<String, dynamic>>> fetchAllCategories() async { // Modified return type
-    final Database db = await database;
+Future<List<CategoryModel>> fetchAllCategories() async {
+  final Database db = await database;
 
-    return await db.query(categoryTableName); // Modified query
+  var categoryMaps = await db.query(categoryTableName);
+  List<CategoryModel> catList = [];
+  for (Map<String, dynamic> categoryMap in categoryMaps) {
+    String colorString = categoryMap['color'];
+    String colorValue = colorString.replaceAll("MaterialColor(primary value: Color(","").replaceAll("))", "");
+    // categoryMap['color'] = colorValue;
+    CategoryModel catModel = CategoryModel(category: categoryMap['name'] , color: colorValue);
+    catList.add(catModel);
   }
+
+  return catList;
+}
+
+// Future<List<Map<String, dynamic>>> fetchAllCategories() async {
+//   final Database db = await database;
+
+//   List<Map<String, dynamic>> categoryMaps = await db.query(categoryTableName);
+ 
+//   // for (Map<String, dynamic> categoryMap in categoryMaps) {
+//   //   String colorString = categoryMap['color'];
+//   //   int colorValue = int.parse(colorString.replaceAll("MaterialColor(primary value: Color(","").replaceAll("))", ""));
+//   //   categoryMap['color'] = colorValue;
+//   // }
+
+//   // return categoryMaps;
+// }
+
 
 }

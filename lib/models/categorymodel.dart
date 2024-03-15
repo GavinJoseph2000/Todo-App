@@ -7,3 +7,4 @@ class CategoryModel {
     required this.color, // Require color parameter in constructor
   });
 }
+

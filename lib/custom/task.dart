@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todos/models/categorymodel.dart';
 import 'package:todos/models/todomodal.dart';
+import 'package:todos/services/categorydata.dart';
 import '../controls/todocontroller.dart';
 import 'todolist.dart';
 
@@ -16,13 +18,34 @@ class Task extends StatefulWidget {
 }
 
 class _TaskState extends State<Task> {
-  DateTime _dateTime = DateTime.now();
-  bool validate = false;
+  final CategoryHelper _categoryHelper = CategoryHelper();
+  String dropDownValue = ''; 
+
+  
+  List<CategoryModel> items = [];
+
+  // Fetch categories before the build method
+  @override
+  void initState() {
+    super.initState();
+    _fetchCategories('');
+  }
+
+  Future<void> _fetchCategories(String query) async {
+    List<CategoryModel> categories = await _categoryHelper.fetchAllCategories();
+    setState(() {
+      items = categories;
+      // Set dropDownValue to the first category if not already set
+      if (dropDownValue.isEmpty && categories.isNotEmpty) {
+        dropDownValue = categories[0].category;
+      }
+    });
+  }
 
   showDatePickerDialog() {
     showDatePicker(
       context: context, 
-      initialDate: _dateTime,
+      initialDate: DateTime.now(),
       firstDate: DateTime(1990),
       lastDate: DateTime(2030),
     ).then((value) {
@@ -54,6 +77,10 @@ class _TaskState extends State<Task> {
     }
   }
 
+  DateTime _dateTime = DateTime.now();
+
+  bool validate = false;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -75,38 +102,32 @@ class _TaskState extends State<Task> {
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
                   ),
-                  
                 ),
-                
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(top: 10),
-            //   child: TextFormField(
-            //     controller: widget.descriptionController,
-            //     maxLength: 100,
-            //     minLines: 1,
-            //     maxLines: 3,
-            //     decoration: InputDecoration(
-            //       errorText: validate ? "please enter description" : null,
-            //       labelText: 'Description',
-            //       border: const OutlineInputBorder(
-            //         borderSide: BorderSide(color: Colors.white),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: TextField(
-                controller: widget.categoryController,
-                decoration: const InputDecoration(
-                  labelText: 'Category',
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+            Padding(padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                children: [
+                  const Text('Category',style: TextStyle(fontSize: 20),),
+                  Container(width: 5,),
+                  DropdownButton(
+                    value: dropDownValue,
+                    items: items.map((CategoryModel category) { 
+                      return DropdownMenuItem( 
+                        value: category.category,
+                        child: Text(category.category),
+                      ); 
+                    }).toList(),  
+                    onChanged: (String? value) {
+                      if (value != null) {
+                        setState(() {
+                          dropDownValue = value;
+                        });
+                      }
+                    },
                   ),
-                ),
-              ),
+                ],
+              )
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
@@ -176,7 +197,7 @@ class _TaskState extends State<Task> {
                     child: ElevatedButton(onPressed: (){
                       Get.back();
                     },
-                    style: ButtonStyle(
+                      style: ButtonStyle(
                         side: const MaterialStatePropertyAll(
                           BorderSide(color: Colors.white60),
                         ),
@@ -185,19 +206,18 @@ class _TaskState extends State<Task> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        
+
                       ),
-                     // ignore: prefer_const_constructors
-                     child: Text('Cancel'))),
-                    Container(width: 20,),
+                      child: const Text('Cancel'))),
+                  Container(width: 20,),
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
                       onPressed: () async {
                         DateTime selectedDateTime = _dateTime;
-                    
+
                         print(selectedDateTime);
-                    
+
                         await widget.todoController.addTodo(
                           widget.titleController.text,
                           widget.descriptionController.text,
@@ -208,10 +228,10 @@ class _TaskState extends State<Task> {
                         await Future.delayed(const Duration(milliseconds: 500));
                         print(
                             'Details Saved: ${widget.titleController.text}, ${widget.categoryController.text},${selectedDateTime}');
-                    
+
                         validate = widget.titleController.text.isEmpty ;
-                            // widget.descriptionController.text.isEmpty;
-                    
+                        // widget.descriptionController.text.isEmpty;
+
                         if (!validate) {
                           await widget.todoController
                               .getAllTodos(); // Refresh the task list
@@ -222,7 +242,7 @@ class _TaskState extends State<Task> {
                             backgroundColor: Colors.green,
                             colorText: Colors.white,
                           );
-                    
+
                           widget.titleController.clear();
                           // widget.descriptionController.clear();
                           widget.categoryController.clear();

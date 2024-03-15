@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DialogBox extends StatefulWidget {
-  const DialogBox({super.key});
+  const DialogBox({Key? key}) : super(key: key);
 
   @override
   State<DialogBox> createState() => DialogBoxState();
@@ -10,20 +10,20 @@ class DialogBox extends StatefulWidget {
 class DialogBoxState extends State<DialogBox> {
   void showDailog() {
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('title'),
-            content: const TextField(),
-            actions: [
-              MaterialButton(
-                onPressed: () {},
-                child: const Text('button'),
-              )
-            ],
-          );
-        }
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('title'),
+          content: const TextField(),
+          actions: [
+            MaterialButton(
+              onPressed: () {},
+              child: const Text('button'),
+            )
+          ],
         );
+      },
+    );
   }
 
   @override

@@ -2,9 +2,36 @@ import 'package:get/get.dart';
 import '../models/todomodal.dart';
 import '../services/data.dart';
 
-class TodoController extends GetxController { 
+class TodoController extends GetxController {
+  Future<void> updateTodo(
+    int id,
+    String newTitle,
+    String newCategory,
+    DateTime newDateTime,
+    bool newStatus,
+  ) async {
+    DatabaseHelper dbHelper = DatabaseHelper();
+    await dbHelper.updateTodo(
+      id,
+      newTitle,
+      newDateTime,
+      newStatus,
+      newCategory,
+      true, // Assuming todos are always active after update
+      DateTime.now().toIso8601String(),
+    );
+    Todo todo = todos.firstWhere((element) => element.id == id);
+    todo.title = newTitle;
+    todo.category = newCategory;
+    todo.dateTime = newDateTime;
+    todo.status = newStatus;
+
+    // Trigger UI update
+    update();
+  }
+
   List<Todo> todos = <Todo>[].obs;
- 
+
   @override
   void onInit() {
     super.onInit();
@@ -20,6 +47,7 @@ class TodoController extends GetxController {
 
     int todoId = await dbHelper.insertTodo(
       title,
+      // description,
       dateTime,
       status,
       category,
@@ -30,10 +58,11 @@ class TodoController extends GetxController {
     Todo newTodo = Todo(
       title: title,
       id: todoId,
+      // description: description,
       dateTime: dateTime,
       status: status,
       category: category,
-      isActive: true, 
+      isActive: true,
       createdDateTime: now,
     );
 
@@ -53,11 +82,10 @@ class TodoController extends GetxController {
     todo.status = newStatus;
   }
 
- Future<void> deleteTodo(int id) async {
+  Future<void> deleteTodo(int id) async {
     DatabaseHelper dbHelper = DatabaseHelper();
     await dbHelper.deleteTodo(id);
 
     todos.removeWhere((element) => element.id == id);
   }
-
-  }
+}
