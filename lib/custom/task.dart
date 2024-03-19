@@ -19,9 +19,8 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   final CategoryHelper _categoryHelper = CategoryHelper();
-  String dropDownValue = ''; 
+  String dropDownValue = '';
 
-  
   List<CategoryModel> items = [];
 
   // Fetch categories before the build method
@@ -44,7 +43,7 @@ class _TaskState extends State<Task> {
 
   showDatePickerDialog() {
     showDatePicker(
-      context: context, 
+      context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1990),
       lastDate: DateTime(2030),
@@ -105,30 +104,36 @@ class _TaskState extends State<Task> {
                 ),
               ),
             ),
-            Padding(padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                children: [
-                  const Text('Category',style: TextStyle(fontSize: 20),),
-                  Container(width: 5,),
-                  DropdownButton(
-                    value: dropDownValue,
-                    items: items.map((CategoryModel category) { 
-                      return DropdownMenuItem( 
-                        value: category.category,
-                        child: Text(category.category),
-                      ); 
-                    }).toList(),  
-                    onChanged: (String? value) {
-                      if (value != null) {
-                        setState(() {
-                          dropDownValue = value;
-                        });
-                      }
-                    },
+            Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white60),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text('Category'),
+                      DropdownButton(
+                        value: dropDownValue,
+                        items: items.map((CategoryModel category) {
+                          return DropdownMenuItem(
+                            value: category.category,
+                            child: Text(category.category),
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {
+                          if (value != null) {
+                            setState(() {
+                              dropDownValue = value;
+                            });
+                          }
+                        },
+                      ),
+                    ],
                   ),
-                ],
-              )
-            ),
+                )),
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Row(
@@ -140,17 +145,17 @@ class _TaskState extends State<Task> {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
-                          side: const BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(10),
+                          side: const BorderSide(color: Colors.white60),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                       ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize.min, 
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         const Icon(Icons.calendar_month),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 5),
                           child: Text(
                             '${_dateTime.day.toString()}/${_dateTime.month.toString()}/${_dateTime.year.toString()}',
                           ),
@@ -161,55 +166,34 @@ class _TaskState extends State<Task> {
                   const SizedBox(
                     width: 20,
                   ),
-                  TextButton(
-                    onPressed: () {
-                      showTimePickerDialog();
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          side: const BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.access_time),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            "${_dateTime.hour}:${_dateTime.minute}",
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  txtBtnTime(),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only( top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 children: [
                   Expanded(
-                    flex: 1,
-                    child: ElevatedButton(onPressed: (){
-                      Get.back();
-                    },
-                      style: ButtonStyle(
-                        side: const MaterialStatePropertyAll(
-                          BorderSide(color: Colors.white60),
-                        ),
-                        shape: MaterialStatePropertyAll(
-                          ContinuousRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                      flex: 1,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          style: ButtonStyle(
+                            side: const MaterialStatePropertyAll(
+                              BorderSide(color: Colors.white60),
+                            ),
+                            shape: MaterialStatePropertyAll(
+                              ContinuousRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
                           ),
-                        ),
-
-                      ),
-                      child: const Text('Cancel'))),
-                  Container(width: 20,),
+                          child: const Text('Cancel'))),
+                  Container(
+                    width: 20,
+                  ),
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
@@ -229,7 +213,7 @@ class _TaskState extends State<Task> {
                         print(
                             'Details Saved: ${widget.titleController.text}, ${widget.categoryController.text},${selectedDateTime}');
 
-                        validate = widget.titleController.text.isEmpty ;
+                        validate = widget.titleController.text.isEmpty;
                         // widget.descriptionController.text.isEmpty;
 
                         if (!validate) {
@@ -254,7 +238,7 @@ class _TaskState extends State<Task> {
                         ),
                         shape: MaterialStatePropertyAll(
                           ContinuousRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
                       ),
@@ -266,6 +250,35 @@ class _TaskState extends State<Task> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget txtBtnTime() {
+    return TextButton(
+      onPressed: () {
+        showTimePickerDialog();
+      },
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.white60),
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.access_time),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: SizedBox(
+                width: 65,
+                child: Text(
+                  "${_dateTime.hour}:${_dateTime.minute}",
+                )),
+          ),
+        ],
       ),
     );
   }
